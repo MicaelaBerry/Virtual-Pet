@@ -13,7 +13,16 @@ public class VirtualPetApp {
 
 		// add a loop for responses
 		System.out.println("Welcome to Virtual Pet Extravaganza! ");
-		do {
+		
+		System.out.println(	"   ^_____^  ");     
+		System.out.println(	"   | o X |    n "); 
+		System.out.println(	"   (  v  )   | | "); 
+		System.out.println(	"  .^`-^-'^.  / /  ");  
+		System.out.println(	"  `.  ;  .' / / "); 
+		System.out.println(	"  | | | | |  /   "); 
+		System.out.println(	" ((_((|))_))  "); 
+		
+				  do {
 			System.out.println("Here is the status of " + pet.name + "\nHunger is " + pet.feedNow + "\nTiredness is "
 					+ pet.sleepNow + "\nPillaging is " + pet.pillageNow + "\nEnergy is " + pet.getEnergyNow());
 
@@ -28,35 +37,47 @@ public class VirtualPetApp {
 			switch (userInput) {
 			case "1":
 				pet.hunger();
+				System.out.println("Louie ate some stinky food!\nBut his levels have changed.\n");
 				break;
 
 			case "2":
 				pet.sleeping();
+				System.out.println("Louie is getting some ZzzZzz!\nBut his levels have changed.\n");
 				break;
 
 			case "3":
 				pet.pillage();
+				System.out.println("Louie travel the 7 seas and found some treasure!\nBut his levels have changed.\n");
+
 				break;
 
 			case "4":
 				pet.energy();
+				System.out.println("Louie drank an energy drink and has more energy!\nBut his levels have changed.\n");
 				break;
 
 			}
 			pet.tick();
 
-		} while (pet.getEnergyNow() > 0);
+		} while (pet.getEnergyNow() > 0 && (pet.getFeedNow() > 0) && (pet.getPillageNow() > 0)
+				&& (pet.getSleepNow() > 0));
 
 		if (pet.getEnergyNow() > 0) {
-			System.out.println("You made " + pet.name + " walk the \nplank to Davey Jones' locker.");
+			System.out.println(pet.name + " now has levels below 0. You made " + pet.name
+					+ " walk the \nplank to Davey Jones' locker.");
+		} else if (pet.getFeedNow() > 0) {
+			System.out.println(pet.name + " now has levels below 0. You made " + pet.name
+					+ " walk the \nplank to Davey Jones' locker.");
+		} else if (pet.getPillageNow() > 0) {
+			System.out.println(pet.name + " now has levels below 0. You made " + pet.name
+					+ " walk the \nplank to Davey Jones' locker.");
+		} else if (pet.getSleepNow() > 0) {
+			System.out.println(pet.name + " now has levels below 0. You made " + pet.name
+					+ " walk the \nplank to Davey Jones' locker.");
 		}
-		if (pet.getFeedNow() > 0) {
-			System.out.println("You made " + pet.name + " walk the \nplank to Davey Jones' locker.");
-		} if (pet.getPillageNow() > 0) {
-			System.out.println("You made " + pet.name + " walk the \nplank to Davey Jones' locker.");
-		}if (pet.getSleepNow() > 0) {
-			System.out.println("You made " + pet.name + " walk the \nplank to Davey Jones' locker.");
-		}
+//		if (pet.energyNow >= 10) {
+//			System.out.println(pet.name + " energy levels were low so he drank an energy drink.");
+//		}
 	}
 
 }// end main method
