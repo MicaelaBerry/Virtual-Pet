@@ -3,25 +3,10 @@ public class VirtualPet {
 
 	String name;
 	int energyNow = 50;
-	int feedNow = 20;
-	int sleepNow = 30;
-	int pillageNow = 50;
+	int feedNow = 30;
+	int sleepNow = 40;
+	int pillageNow = 60;
 
-	int getEnergyNow() {
-		return energyNow;
-	}
-
-	int getFeedNow() {
-		return feedNow;
-	}
-
-	int getSleepNow() {
-		return sleepNow;
-	}
-
-	int getPillageNow() {
-		return pillageNow;
-	}
 
 	void energy() {
 		energyNow = energyNow + 10;
@@ -51,9 +36,13 @@ public class VirtualPet {
 		feedNow = feedNow + 10;
 		sleepNow = sleepNow - 10;
 	}
+	
+	void quit (){
+		System.exit(0);
+	}
 
 	void tick() {
-		energyNow = energyNow - 5;
+		energyNow = energyNow + 5;
 		feedNow = feedNow + 5;
 		sleepNow = sleepNow + 5;
 		pillageNow = pillageNow + 5;

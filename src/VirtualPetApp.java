@@ -24,20 +24,21 @@ public class VirtualPetApp {
 		
 				  do {
 			System.out.println("Here is the status of " + pet.name + "\nHunger is " + pet.feedNow + "\nTiredness is "
-					+ pet.sleepNow + "\nPillaging is " + pet.pillageNow + "\nEnergy is " + pet.getEnergyNow());
+					+ pet.sleepNow + "\nPillaging is " + pet.pillageNow + "\nEnergy is " + pet.energyNow);
 
 			System.out.println("\nWhat would you like " + pet.name + " to do?\n Enter the number on the menu below\n");
-			System.out.println("1: Feed " + pet.name + " some stinky food.");
+			System.out.println("1: Feed " + pet.name + " some stinky pirate grub.");
 			System.out.println("2: Make " + pet.name + " catch some ZzzZzz.");
 			System.out.println("3: Make " + pet.name + " sail the 7 seas and find treasure.");
-			System.out.println("4: Get " + pet.name + " energy level.");
+			System.out.println("4: Raise " + pet.name + " energy levels.");
+			System.out.println("5: Quit the program.");
 			String userInput = input.nextLine();
 
 			// this is where your do loop *was*
 			switch (userInput) {
 			case "1":
 				pet.hunger();
-				System.out.println("Louie ate some stinky food!\nBut his levels have changed.\n");
+				System.out.println("Louie ate some stinky pirate grub!\nBut his levels have changed.\n");
 				break;
 
 			case "2":
@@ -55,29 +56,33 @@ public class VirtualPetApp {
 				pet.energy();
 				System.out.println("Louie drank an energy drink and has more energy!\nBut his levels have changed.\n");
 				break;
+				
+			case "5":
+				System.out.println("You have quit Virtual Pet Extravaganza");
+				pet.quit();
 
 			}
+			
+			//runs after every user input with extra stats
 			pet.tick();
 
-		} while (pet.getEnergyNow() > 0 && (pet.getFeedNow() > 0) && (pet.getPillageNow() > 0)
-				&& (pet.getSleepNow() > 0));
+		} while (pet.energyNow > 0 && pet.feedNow > 0 && pet.pillageNow > 0
+				&& pet.sleepNow > 0);
 
-		if (pet.getEnergyNow() > 0) {
+		if (pet.energyNow > 0) {
 			System.out.println(pet.name + " now has levels below 0. You made " + pet.name
-					+ " walk the \nplank to Davey Jones' locker.");
-		} else if (pet.getFeedNow() > 0) {
+					+ " walk the plank to Davey Jones' locker.");
+		} else if (pet.feedNow > 0) {
 			System.out.println(pet.name + " now has levels below 0. You made " + pet.name
-					+ " walk the \nplank to Davey Jones' locker.");
-		} else if (pet.getPillageNow() > 0) {
+					+ " walk the plank to Davey Jones' locker.");
+		} else if (pet.pillageNow> 0) {
 			System.out.println(pet.name + " now has levels below 0. You made " + pet.name
-					+ " walk the \nplank to Davey Jones' locker.");
-		} else if (pet.getSleepNow() > 0) {
+					+ " walk the nplank to Davey Jones' locker.");
+		} else if (pet.sleepNow > 0) {
 			System.out.println(pet.name + " now has levels below 0. You made " + pet.name
-					+ " walk the \nplank to Davey Jones' locker.");
+					+ " walk the plank to Davey Jones' locker.");
 		}
-//		if (pet.energyNow >= 10) {
-//			System.out.println(pet.name + " energy levels were low so he drank an energy drink.");
-//		}
+
 	}
 
 }// end main method
