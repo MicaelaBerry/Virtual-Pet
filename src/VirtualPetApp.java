@@ -23,7 +23,7 @@ public class VirtualPetApp {
 		System.out.println(" ((_((|))_))  ");
 
 		do {
-			System.out.println("Here is the status of " + pet.name + "\nHunger is " + pet.feedNow + "\nTiredness is "
+			System.out.println("\nHere is the current status of " + pet.name + "\nHunger is " + pet.feedNow + "\nTiredness is "
 					+ pet.sleepNow + "\nPillaging is " + pet.pillageNow + "\nEnergy is " + pet.energyNow);
 
 			System.out.println("\nWhat would you like " + pet.name + " to do?\n Enter the number on the menu below\n");
@@ -64,18 +64,17 @@ public class VirtualPetApp {
 			}
 			if (pet.feedNow < 20) {
 				System.out.println("I'm getting pretty peckish... I could use some pirate grub.\n");
-			} else if (pet.sleepNow < 10) {
+			} else if (pet.sleepNow < 20) {
 				System.out.println("I'm feeling a bit tired... I could use some ZzzZzzs.\n");
-			} else if (pet.energyNow < 10) {
+			} else if (pet.energyNow < 20) {
 				System.out.println("I'm feeling a bit lethargic... I could use some energy!\n");
-			} else if (pet.pillageNow < 10) {
+			} else if (pet.pillageNow < 20) {
 				System.out.println("I'm not feeling like a pirate... I need to sail the 7 seas!\n");
 			}
 			
-			// runs after every user input with extra stats to show passage of
-			// time
+			// runs after every user input with extra stats to show passage of time
 			pet.tick();
-	//		System.out.println("Time has passed and " + pet.name + " levels have changed.\n");
+
 
 		} while (pet.energyNow > 1 && pet.feedNow > 1 && pet.pillageNow > 1 && pet.sleepNow > 1);
 
