@@ -23,8 +23,9 @@ public class VirtualPetApp {
 		System.out.println(" ((_((|))_))  ");
 
 		do {
-			System.out.println("\nHere is the current status of " + pet.name + "\nHunger is " + pet.feedNow + "\nTiredness is "
-					+ pet.sleepNow + "\nPillaging is " + pet.pillageNow + "\nEnergy is " + pet.energyNow);
+			System.out.println(
+					"\nHere is the current status of " + pet.name + "\nHunger is " + pet.feedNow + "\nTiredness is "
+							+ pet.sleepNow + "\nPillaging is " + pet.pillageNow + "\nEnergy is " + pet.energyNow);
 
 			System.out.println("\nWhat would you like " + pet.name + " to do?\n Enter the number on the menu below\n");
 			System.out.println("1: Feed " + pet.name + " some stinky pirate grub.");
@@ -48,7 +49,7 @@ public class VirtualPetApp {
 
 			case "3":
 				pet.pillage();
-				System.out.println("Louie travel the 7 seas and found some treasure!\n");
+				System.out.println("Louie traveled the 7 seas and found some treasure!\n");
 
 				break;
 
@@ -71,10 +72,32 @@ public class VirtualPetApp {
 			} else if (pet.pillageNow < 20) {
 				System.out.println("I'm not feeling like a pirate... I need to sail the 7 seas!\n");
 			}
-			
+
+			if (pet.pillageNow <= 5) {
+				pet.pillage();
+				System.out.println("I'm going to pillage some more because why not!\n I'm a pirate you can't"
+						+ " tell me what to do!");
+
+			}
+			if (pet.energyNow <= 5) {
+				pet.energy();
+				System.out.println("I decided to give myself some energy.\n I'm bouncing off the walls again... WHOA!\n");
+
+			}
+			if (pet.sleepNow <= 5) {
+				pet.sleeping();
+				System.out.println("I feeling tired so I'm going to go get some beauty sleep.");
+
+			}
+			if (pet.feedNow <= 5) {
+				pet.hunger();
+				System.out
+						.println("I decided to eat since you aren't feeding me. Poly ain't getting " 
+				+ "a cracker now.");
+			}
+
 			// runs after every user input with extra stats to show passage of time
 			pet.tick();
-
 
 		} while (pet.energyNow > 1 && pet.feedNow > 1 && pet.pillageNow > 1 && pet.sleepNow > 1);
 
@@ -91,7 +114,7 @@ public class VirtualPetApp {
 			System.out.println(pet.name + " now has levels below 0.\n You made " + pet.name
 					+ " walk the plank to Davey Jones' locker.");
 		}
-
+		input.close();
 	}
 
 }// end main method
