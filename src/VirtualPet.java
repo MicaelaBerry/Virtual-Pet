@@ -7,7 +7,7 @@ public class VirtualPet {
 	int sleepNow = 40;
 	int pillageNow = 60;
 
-
+	
 	void energy() {
 		energyNow = energyNow + 10;
 		sleepNow = sleepNow - 10;
